@@ -1,0 +1,859 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Portfolio | Febru Ferdiansyah</title>
+
+    <!-- GOOGLE FONT -->
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+
+        /* =========================
+           RESET
+        ========================== */
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            scroll-behavior:smooth;
+        }
+
+        :root{
+            --primary:#ff3c3c;
+            --dark:#0f0f0f;
+            --white:#ffffff;
+            --gray:#cfcfcf;
+            --glass:rgba(255,255,255,0.07);
+        }
+
+        body{
+            font-family:'Outfit',sans-serif;
+            color:var(--white);
+            overflow-x:hidden;
+            min-height:100vh;
+
+            background:
+            linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.75)),
+            url("tanjiro-kamado-red-3840x2160-22577.png");
+
+            background-size:cover;
+            background-position:center;
+            background-attachment:fixed;
+        }
+
+        img{
+            max-width:100%;
+            display:block;
+        }
+
+        a{
+            text-decoration:none;
+        }
+
+        section{
+            width:100%;
+            max-width:1200px;
+            margin:auto;
+            padding:110px 25px;
+        }
+
+        /* =========================
+           NAVBAR
+        ========================== */
+
+        nav{
+            position:fixed;
+            top:0;
+            left:0;
+            width:100%;
+            padding:18px 50px;
+
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+
+            background:rgba(0,0,0,0.35);
+            backdrop-filter:blur(12px);
+
+            z-index:999;
+            border-bottom:1px solid rgba(255,255,255,0.08);
+        }
+
+        .logo{
+            font-family:'Bebas Neue',sans-serif;
+            font-size:38px;
+            letter-spacing:3px;
+            color:var(--primary);
+        }
+
+        .nav-links{
+            display:flex;
+            align-items:center;
+            gap:30px;
+            list-style:none;
+        }
+
+        .nav-links a{
+            color:var(--white);
+            font-weight:600;
+            transition:0.3s;
+            position:relative;
+        }
+
+        .nav-links a::after{
+            content:'';
+            position:absolute;
+            left:0;
+            bottom:-6px;
+            width:0%;
+            height:2px;
+            background:var(--primary);
+            transition:0.3s;
+        }
+
+        .nav-links a:hover{
+            color:var(--primary);
+        }
+
+        .nav-links a:hover::after{
+            width:100%;
+        }
+
+        /* =========================
+           HOME
+        ========================== */
+
+        #home{
+            min-height:100vh;
+            display:flex;
+            align-items:center;
+        }
+
+        .home-content{
+            width:100%;
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            gap:60px;
+        }
+
+        .home-text{
+            flex:1;
+        }
+
+        .home-text h1{
+            font-family:'Bebas Neue',sans-serif;
+            font-size:85px;
+            line-height:1;
+            margin-bottom:15px;
+        }
+
+        .home-text h1 span{
+            color:var(--primary);
+        }
+
+        .typing-text{
+            font-size:30px;
+            font-weight:700;
+            color:#ff5a5a;
+            margin-bottom:20px;
+            min-height:40px;
+        }
+
+        .home-text p{
+            color:var(--gray);
+            font-size:20px;
+            line-height:1.7;
+            margin-bottom:35px;
+            max-width:650px;
+        }
+
+        .home-buttons{
+            display:flex;
+            gap:20px;
+            flex-wrap:wrap;
+        }
+
+        .btn{
+            padding:15px 35px;
+            border-radius:50px;
+            font-weight:700;
+            border:2px solid var(--primary);
+            color:var(--white);
+            transition:0.3s;
+        }
+
+        .btn:hover{
+            background:var(--primary);
+            transform:translateY(-5px);
+            box-shadow:0 0 20px rgba(255,60,60,0.6);
+        }
+
+        .home-image{
+            flex:1;
+            display:flex;
+            justify-content:center;
+        }
+
+        .profile-img{
+            width:360px;
+            height:360px;
+            object-fit:cover;
+            border-radius:50%;
+            border:5px solid var(--primary);
+
+            box-shadow:
+            0 0 25px rgba(255,0,0,0.5),
+            0 0 60px rgba(255,0,0,0.3);
+
+            animation:float 3s ease-in-out infinite;
+        }
+
+        @keyframes float{
+            0%,100%{
+                transform:translateY(0px);
+            }
+
+            50%{
+                transform:translateY(-15px);
+            }
+        }
+
+        /* =========================
+           SECTION TITLE
+        ========================== */
+
+        .section-title{
+            text-align:center;
+            font-family:'Bebas Neue',sans-serif;
+            font-size:60px;
+            letter-spacing:2px;
+            color:var(--primary);
+            margin-bottom:60px;
+        }
+
+        /* =========================
+           ABOUT
+        ========================== */
+
+        #about{
+            background:rgba(255,255,255,0.05);
+            backdrop-filter:blur(12px);
+            border-radius:25px;
+        }
+
+        .about-content{
+            display:grid;
+            grid-template-columns:1fr 1fr;
+            gap:50px;
+            align-items:center;
+        }
+
+        .about-left{
+            display:flex;
+            justify-content:center;
+        }
+
+        .about-img{
+            width:100%;
+            max-width:380px;
+            border-radius:25px;
+            border:3px solid var(--primary);
+        }
+
+        .about-text p{
+            color:var(--gray);
+            line-height:1.9;
+            margin-bottom:20px;
+            font-size:17px;
+        }
+
+        .skills{
+            display:flex;
+            flex-wrap:wrap;
+            gap:15px;
+            margin-top:25px;
+        }
+
+        .skill-tag{
+            padding:10px 20px;
+            border-radius:30px;
+            border:1px solid var(--primary);
+            background:rgba(255,0,0,0.08);
+            transition:0.3s;
+            cursor:pointer;
+        }
+
+        .skill-tag:hover{
+            background:var(--primary);
+            transform:translateY(-5px);
+        }
+
+        /* =========================
+           PROJECT
+        ========================== */
+
+        .projects-grid{
+            display:grid;
+            grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+            gap:30px;
+        }
+
+        .project-card{
+            background:var(--glass);
+            border-radius:25px;
+            overflow:hidden;
+
+            border:1px solid rgba(255,255,255,0.08);
+
+            transition:0.4s;
+            backdrop-filter:blur(10px);
+        }
+
+        .project-card:hover{
+            transform:translateY(-10px);
+            box-shadow:0 0 30px rgba(255,0,0,0.25);
+        }
+
+        .project-img{
+            width:100%;
+            height:220px;
+
+            display:flex;
+            justify-content:center;
+            align-items:center;
+
+            overflow:hidden;
+
+            background:linear-gradient(45deg,#2a0000,#750000);
+        }
+
+        .project-img img{
+            width:100%;
+            height:100%;
+            object-fit:cover;
+        }
+
+        .emoji{
+            font-size:70px;
+        }
+
+        .project-info{
+            padding:25px;
+        }
+
+        .project-info h3{
+            font-size:24px;
+            margin-bottom:15px;
+        }
+
+        .project-info p{
+            color:var(--gray);
+            line-height:1.8;
+            margin-bottom:20px;
+        }
+
+        .project-links{
+            display:flex;
+            gap:20px;
+        }
+
+        .project-links a{
+            color:var(--primary);
+            font-weight:700;
+            transition:0.3s;
+        }
+
+        .project-links a:hover{
+            color:white;
+        }
+
+        /* =========================
+           CONTACT
+        ========================== */
+
+        #contact{
+            text-align:center;
+        }
+
+        .social-links{
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            gap:25px;
+            flex-wrap:wrap;
+        }
+
+        .social-links a{
+            width:75px;
+            height:75px;
+            border-radius:50%;
+
+            display:flex;
+            justify-content:center;
+            align-items:center;
+
+            background:rgba(255,255,255,0.08);
+            backdrop-filter:blur(10px);
+
+            transition:0.3s;
+            border:1px solid rgba(255,255,255,0.08);
+        }
+
+        .social-links a:hover{
+            transform:translateY(-8px) scale(1.08);
+            box-shadow:0 0 25px rgba(255,0,0,0.5);
+        }
+
+        .social-links img{
+            width:38px;
+            height:38px;
+            object-fit:contain;
+        }
+
+        .github img{
+            transform:scale(1.25);
+        }
+
+        /* =========================
+           FOOTER
+        ========================== */
+
+        footer{
+            text-align:center;
+            padding:30px 20px;
+            color:#aaaaaa;
+            font-size:15px;
+        }
+
+        /* =========================
+           RESPONSIVE
+        ========================== */
+
+        @media(max-width:950px){
+
+            nav{
+                padding:15px 20px;
+            }
+
+            .nav-links{
+                gap:15px;
+            }
+
+            .home-content{
+                flex-direction:column-reverse;
+                text-align:center;
+            }
+
+            .home-text h1{
+                font-size:60px;
+            }
+
+            .home-text p{
+                margin:auto;
+                margin-bottom:35px;
+            }
+
+            .home-buttons{
+                justify-content:center;
+            }
+
+            .profile-img{
+                width:280px;
+                height:280px;
+            }
+
+            .about-content{
+                grid-template-columns:1fr;
+            }
+        }
+
+        @media(max-width:600px){
+
+            .nav-links{
+                display:none;
+            }
+
+            .home-text h1{
+                font-size:48px;
+            }
+
+            .typing-text{
+                font-size:24px;
+            }
+
+            .section-title{
+                font-size:45px;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <!-- =========================
+         NAVBAR
+    ========================== -->
+
+    <nav>
+
+        <div class="logo">PORTO</div>
+
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">Tentang</a></li>
+            <li><a href="#projects">Proyek</a></li>
+            <li><a href="#contact">Kontak</a></li>
+        </ul>
+
+    </nav>
+
+    <!-- =========================
+         HOME
+    ========================== -->
+
+    <section id="home">
+
+        <div class="home-content">
+
+            <div class="home-text">
+
+                <h1>
+                    HAI, I'M <span>FEBRU FERDIANSYAH</span>
+                </h1>
+
+                <div class="typing-text" id="typing"></div>
+
+                <p>
+                    Web Developer, UI/UX Designer, dan Python Developer
+                    yang fokus membuat website modern, interaktif,
+                    dan user friendly.
+                </p>
+
+                <div class="home-buttons">
+                    <a href="#contact" class="btn">Hubungi Saya</a>
+                    <a href="febru ferdiyansyah.pdf" download class="btn">download CV</a>
+                </div>
+
+            </div>
+
+            <div class="home-image">
+                <img src="foto saya.jpeg" alt="Foto Profil" class="profile-img">
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- =========================
+         ABOUT
+    ========================== -->
+
+    <section id="about">
+
+        <h2 class="section-title">Tentang Saya</h2>
+
+        <div class="about-content">
+
+            <div class="about-left">
+                <img src="p.jpeg" alt="About Image" class="about-img">
+            </div>
+
+            <div class="about-text">
+
+                <p>
+                    Saya adalah mahasiswa Cakrawala University dan developer pemula
+                    yang memiliki minat besar pada Web Development,
+                    UI/UX Design, Python Programming, dan edit vidio.
+                </p>
+
+                <p>
+                    Saya senang membuat desain website modern,
+                    mempelajari teknologi baru,
+                    dan mengembangkan project kreatif yang menarik, 
+                    dan saya suka mempelajari hal hal baru yang mungkin belum pernah saya pelajari di sekolah atau kampus.
+                </p>
+
+                <div class="skills">
+                    <span class="skill-tag">HTML</span>
+                    <span class="skill-tag">css</span>
+                    <span class="skill-tag">canva</span>
+                    <span class="skill-tag">cap-cut</span>
+                    <span class="skill-tag">data base</span>
+                    <span class="skill-tag">Python</span>
+                    <span class="skill-tag">UI/UX</span>
+                    <span class="skill-tag">Figma</span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- =========================
+         PROJECT
+    ========================== -->
+<!-- =========================
+     PROJECT
+========================== -->
+
+<section id="projects">
+
+    <h2 class="section-title">Proyek Saya</h2>
+
+    <div class="projects-grid">
+
+        <!-- PROJECT 1 -->
+
+        <div class="project-card">
+
+            <div class="project-img">
+                <img src="Screenshot 2026-05-08 205937.png" alt="Project Figma">
+            </div>
+
+            <div class="project-info">
+
+                <h3>Desain Figma</h3>
+
+                <p>
+                    Desain website e-commerce modern bertema sepatu
+                    dengan tampilan clean, elegan, dan responsif.
+                </p>
+
+                <div class="project-links">
+                    <a href="https://www.figma.com/proto/mwgMvEX23Pi8sHKnaUCV70/Untitled?node-id=6-234&starting-point-node-id=3%3A31&t=CHC1A1RI4EXPtMtV-1" target="_blank">
+                        Lihat Figma
+                    </a>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- PROJECT 2 -->
+
+        <div class="project-card">
+
+            <div class="project-img">
+                <img src="Screenshot 2026-05-08 214509.png" alt="Aplikasi Kesehatan">
+            </div>
+
+            <div class="project-info">
+
+                <h3>Desain Aplikasi Kesehatan</h3>
+
+                <p>
+                    Prototype aplikasi kesehatan modern untuk cek kesehatan
+                    dengan tampilan UI yang sederhana dan mudah digunakan.
+                </p>
+
+                <div class="project-links">
+                    <a href="https://www.figma.com/proto/nUdHoSxh87zDxBRVsHcmvU/SAHABAT-SEHAT-PROJECT?node-id=7-9&starting-point-node-id=136%3A506&t=nIwc05lomD3TH9gi-1" target="_blank">
+                        Lihat Figma
+                    </a>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- PROJECT 3 -->
+
+        <div class="project-card">
+
+            <div class="project-img">
+                <img src="Screenshot 2026-05-09 131943.png" alt="Project Aplikasi">
+            </div>
+
+            <div class="project-info">
+
+                <h3>Desain Aplikasi Makanan</h3>
+
+                <p>
+                    Project desain aplikasi modern dengan konsep premium,
+                    clean UI, dan pengalaman pengguna yang interaktif.
+                </p>
+
+                <div class="project-links">
+                    <a href="https://www.figma.com/proto/PDI6VoLjKKDrL5rGlJs2dX/Untitled?node-id=6-11&p=f&t=xwzbA8YGeHXW3T0T-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=1%3A4" target="_blank">Lihat Figma</a>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="project-card">
+
+            <div class="project-img">
+                <img src="MIE PADEH (7).png" alt="Project Aplikasi">
+            </div>
+
+            <div class="project-info">
+
+                <h3>Desain poster</h3>
+
+                <p>
+               ini adalah projek poster umkm kecil dengan konsep lebih modern dan interaktif
+                </p>
+
+                <div class="project-links">
+                    <a href="https://canva.link/6v5ixwjep8wdq1a" target="_blank">Lihat canva</a>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="project-card">
+
+            <div class="project-img">
+                <img src="ChatGPT Image May 9, 2026, 02_38_28 PM.png" alt="Project python">
+            </div>
+
+            <div class="project-info">
+
+                <h3>projek python</h3>
+
+                <p>
+               ini adalah projek python tentang perpustakaan tapi masih di jalanin di terminal
+                </p>
+
+                <div class="project-links">
+                    <a href="https://drive.google.com/drive/folders/1NiOUhXJZESjlVOGmf6KBW5WoY0dSZL9Z?usp=sharing" target="_blank">python</a>
+                </div>
+
+            </div>
+
+        </div>
+
+        
+        <div class="project-card">
+
+            <div class="project-img">
+                <img src="ChatGPT Image May 9, 2026, 02_48_26 PM.png" alt="Project python">
+            </div>
+
+            <div class="project-info">
+
+                <h3>projek data base</h3>
+
+                <p>
+               ini adalah sebuah projek database tentang rumah makan dan sebuah dokumentasi membuat chetbot di n8n dan di jalankan via telegram
+                </p>
+
+                <div class="project-links">
+                    <a href="https://drive.google.com/drive/folders/1DHVJUE_nHHpKagfX3gdKGqHX31E1rpmz?usp=drive_link" target="_blank">google drive </a>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="project-card">
+
+            <div class="project-img">
+                <img src="ChatGPT Image May 9, 2026, 02_57_01 PM.png" alt="Project python">
+            </div>
+
+            <div class="project-info">
+
+                <h3>projek python</h3>
+
+                <p>
+               ini adalah projek python tentang perpajakan  tapi masih di jalanin di terminal
+                </p>
+
+                <div class="project-links">
+                    <a href="https://drive.google.com/drive/folders/122uGkD5Y3qt1tME0J2ELH9HIv36WgYiL?usp=sharing" target="_blank">python</a>
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+    <!-- =========================
+         CONTACT
+    ========================== -->
+
+    <section id="contact">
+
+        <h2 class="section-title">Kontak</h2>
+
+        <div class="social-links">
+
+            <a href="https://instagram.com/februari_0416" target="_blank">
+                <img src="Instagram_logo_2022.svg" alt="Instagram">
+            </a>
+
+            <a href="https://wa.me/6289679346598" target="_blank">
+                <img src="—Pngtree—whatsapp icon vector_8704827.png" alt="WhatsApp">
+            </a>
+
+            <a href="https://github.com/februferdiansyah02-rgb" target="_blank" class="github">
+                <img src="github-logo-transparent-background-free-png.webp" alt="GitHub">
+            </a>
+
+            <a href="mailto:februferdiansyah02@gmail.com">
+                <img src="ikon-aplikasi-gmail_1273375-1249.avif" alt="Email">
+            </a>
+
+        </div>
+
+    </section>
+
+  
+
+    <script>
+
+        const texts = [
+            "Developer",
+            "UI/UX Designer",
+            "Python Programmer",
+            "Creative Coder"
+        ];
+
+        let count = 0;
+        let index = 0;
+        let currentText = "";
+        let letter = "";
+
+        function typeEffect(){
+
+            if(count === texts.length){
+                count = 0;
+            }
+
+            currentText = texts[count];
+            letter = currentText.slice(0, ++index);
+
+            document.getElementById("typing").textContent = letter;
+
+            if(letter.length === currentText.length){
+
+                count++;
+                index = 0;
+
+                setTimeout(typeEffect, 1800);
+
+            }else{
+
+                setTimeout(typeEffect, 100);
+            }
+        }
+
+        typeEffect();
+
+    </script>
+
+</body>
+</html>
